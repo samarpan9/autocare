@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #6fc2ff, #0062cc);
+  }
+  
+  form {
+    width: 20%;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #0062cc;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #aaa;
+    font-size: 0.8em;
+    transition: all 0.2s ease-out;
+  }
+  
+  .form-group input:focus + label,
+  .form-group input:not(:placeholder-shown) + label {
+    top: -20px;
+    left: 0;
+    color: #0062cc;
+    font-size: 0.7em;
+  }
+  
+  button[type="submit"] {
+    background-color: #0062cc;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0051a8;
+  }
+  
+  .signup {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .signup a {
+    color: #0062cc;
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    form {
+      width: 80%;
+      }
+    }

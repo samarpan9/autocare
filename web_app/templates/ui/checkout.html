@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoCare</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/ui/util.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/ui/checkout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="my-nav">
+      <div class="my-logo">
+        <label>Auto<span>Care</span></label>
+      </div>
+      <ul class="my-menu">
+        <li>
+          <a href="" class="my-active"
+            ><i class="fa-solid fa-house"></i> Home</a
+          >
+        </li>
+        <li><a href="">About Us</a></li>
+        <li>
+          <a href=""><i class="fa-solid fa-phone"></i> Contact Us</a>
+        </li>
+      </ul>
+      <ul class="my-auth-link">
+        <li><a href="./html/login.html">Login</a></li>
+        <li><a href="./html/signup.html">Sign Up</a></li>
+      </ul>
+    </nav>
+    <!-- navbar break -->
+
+    <section class="border row m-5 p-lg-4">
+      <div class="col-6">
+        <form action="/garages/book/{{garage_id}}" method= 'post' id="my-form">
+          <div class="row">
+            <div class="col-12 mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Available Times</label
+              >
+              <select class="form-control" aria-label="Default select example" name='timing'>
+                <option value = '09:00 AM - 10:00 AM' selected>09:00 AM - 10:00 AM</option>
+                <option value = '10:00 AM - 11:00 AM'>10:00 AM - 11:00 AM</option>
+                <option value = '11:00 AM - 12:00 PM'>11:00 AM - 12:00 PM</option>
+                <option value = '12:00 PM - 01:00 PM'>12:00 PM - 01:00 PM</option>
+                <option value = '01:00 PM - 02:00 PM'>01:00 PM - 02:00 PM</option>
+                <option value = '02:00 PM - 03:00 PM'>02:00 PM - 03:00 PM</option>
+                <option value = '03:00 PM - 04:00 PM'>03:00 PM - 04:00 PM</option>
+                <option value = '04:00 PM - 05:00 PM'>04:00 PM - 05:00 PM</option>
+                <option value = '05:00 PM - 06:00 PM'>05:00 PM - 06:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle form-control"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Services
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {%for i in service_list%}
+                  <div class="row">
+                    <div class="col-1 ml-2">
+                      <input
+                        type="checkbox"
+                        value={{i.service_id}}
+                        class="service-select"
+                        aria-label={{i.service_name}}
+                        data-services-price={{i.service_price}}
+                        name = 'service'
+                      />
+                    </div>
+                    <div class="col-8">
+                      <label for="">{{i.service_name}}</label>
+                    </div>
+                  </div>
+                {%endfor%}
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <div class="col-6 mb-3">
+              <label for="exampleInputEmail1" class="form-label">Brand</label>
+              <input type="text" class="form-control" name='brand'/>
+            </div>
+            <div class="col-6 mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Model Number</label
+              >
+              <input type="text" class="form-control" name='brand_no'/>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="p_nd_d">Pick up and drop</label>
+            <input
+              type="checkbox"
+              name="p_nd_d"
+              id="p_nd_d"
+              class="form-check"
+            />
+          </div>
+
+          <div class="row" id="row-to-hide" style="display: none">
+            <div class="col-4 mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Location</label
+              >
+              <input type="text" class="form-control" name='user_loc'/>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-check-label">Subscription</label>
+            <input
+              type="checkbox"
+              class="form-check mt-2 mb-2"
+              id="subCheckbox"
+            />
+            <div id="sub-row-to-hide" style="display: none">
+              <select id="" class="form-control" name='sub_duration'>
+                {%for i in sub_list%}
+                <option value={{i['sub_pack_id']}} >{{i['package_name']}}</option>
+                {%endfor%}
+              </select>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="grand-total"
+              name="total"
+              hidden
+            />
+            <input
+              type="text"
+              class="form-control"
+              id="services-id"
+              name="services-id"
+              hidden
+            />
+            <input
+            type="text"
+            class="form-control"
+            id="hidden-pd"
+            name="hidden-pd"
+            hidden
+          />
+          <input
+            type="text"
+            class="form-control"
+            id="user_id"
+            value = {{session.current_user.user_id}}
+            name="user_id"
+            hidden
+          />
+          <input
+          type="text"
+          class="form-control"
+          id="sub"
+          name="sub" 
+          hidden
+        />
+          
+          </div>
+          <button class="btn btn-primary" onclick="displayService()">
+            Calculate
+          </button>
+        </form>
+      </div>
+      <div class="col-6">
+        <img src="../img/checkout.jpg" alt="" class="col-12 mb-4" />
+        <div class="row mb-2 ml-1">
+          <div class="col-8"><b>Services</b></div>
+          <div class="col-4"><b>Price</b></div>
+        </div>
+        <div class="mb-1 ml-1" id="services-list"></div>
+        <div class="row mt-3 ml-1">
+          <div class="col-8"></div>
+          <div class="col-4">
+            <button
+              class="btn btn-primary"
+              onclick="handleSubmit()"
+              id="submit-button"
+              style="display: none"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- footer -->
+    <footer class="bg-smoke">
+      <ul class="social-menu">
+        <li>
+          <a href="./html/garage-list.html"
+            ><i class="fa-brands fa-facebook-f"></i> Facebook</a
+          >
+        </li>
+        <li>
+          <a href="./html//details.html">
+            <i class="fa-brands fa-instagram"></i> Instagram</a
+          >
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i> Linkedin</a>
+        </li>
+      </ul>
+      <div class="foot-nav">
+        <div class="service-nav">
+          <b>Popular Services</b>
+          <ul>
+            <li><a href="#">All Service</a></li>
+            <li><a href="#">General Service</a></li>
+            <li><a href="#">Custom Repairs</a></li>
+            <li><a href="#">Car Cleaning</a></li>
+            <li><a href="#">AC/Heater Service</a></li>
+            <li><a href="#">Denting And Painting</a></li>
+          </ul>
+        </div>
+        <div class="comapny-nav">
+          <b>Company</b>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Faq</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Term & Condition</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="foot-copyright">&#169; 2023 All Rights Reserved | Autocare</p>
+    </footer>
+    <script>
+      //submit form
+      const form = document.getElementById("my-form");
+      const submitButton = document.getElementById("submit-button");
+      function handleSubmit() {
+        form.submit();
+      }
+
+      var checkbox = document.getElementById("p_nd_d");
+      var rowToHide = document.getElementById("row-to-hide");
+
+      var subCheckbox = document.getElementById("subCheckbox");
+      var subRowToHide = document.getElementById("sub-row-to-hide");
+
+      checkbox.addEventListener("change", function () {
+        if (this.checked) {
+          const hidden_pd = document.getElementById("hidden-pd");
+          hidden_pd.value = 'true'
+          rowToHide.style.display = "flex";
+        } else {
+          rowToHide.style.display = "none";
+        }
+      });
+      subCheckbox.addEventListener("change", function () {
+        if (this.checked) {
+          sub.value = 'true'
+          subRowToHide.style.display = "flex";
+        } else {
+          subRowToHide.style.display = "none";
+        }
+      });
+
+      //checkbox data
+      function displayService() {
+        const form = document.getElementById("my-form");
+        const checkboxes = form.getElementsByClassName("service-select");
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const selectedCheckboxes = Array.from(checkboxes).filter(
+            (checkbox) => checkbox.checked
+          );
+          const selectedValues = selectedCheckboxes.map(
+            (checkbox) => checkbox.value
+          );
+          const servicesIdField = document.getElementById("services-id");
+          servicesIdField.value = selectedValues;
+          const services = selectedCheckboxes.map((checkbox) => {
+            return {
+              value: checkbox.getAttribute("data-services-price"),
+              ariaLabel: checkbox.getAttribute("aria-label"),
+              id: checkbox.value,
+            };
+          });
+          if (services.length <= 0) {
+            submitButton.style.display = "none";
+          } else {
+            submitButton.style.display = "block";
+          }
+          //Displaying data
+          const uiGrandTotal = document.getElementById("grand-total");
+          let parent = document.getElementById("services-list");
+          let total = 0;
+
+          parent.innerHTML = "";
+          for (let i = 0; i < services.length; i++) {
+            total += parseInt(services[i].value);
+            parent.innerHTML += `
+            <div class="row mb-1 ml-1">
+              <div class="col-8">${services[i].ariaLabel}</div>
+              <div class="col-4">${services[i].value}</div>
+            </div>`;
+          }
+
+          //adding tax
+          let taxAmount = total * 0.1;
+          parent.innerHTML += `
+            <div class="row mb-1 ml-1">
+              <div class="col-8"><b>Tax</b></div>
+              <div class="col-4"><b>${taxAmount}</b></div>
+            </div>`;
+
+          //Total cost
+          parent.innerHTML += `
+            <div class="row mb-1 ml-1">
+              <div class="col-8"><b>Grand Total</b></div>
+              <div class="col-4"><b>${total + taxAmount}</b></div>
+            </div>`;
+
+          uiGrandTotal.value = total + taxAmount;
+        });
+      }
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

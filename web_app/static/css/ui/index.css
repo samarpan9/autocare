@@ -1,0 +1,287 @@
+section {
+  padding: 2em 2em;
+}
+
+.red-line {
+  width: 80px;
+  height: 0.5vh;
+  background-color: tomato;
+  margin: 1em 0em 2em 0em;
+}
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 1.5em;
+  row-gap: 1.5em;
+  width: 100%;
+  margin: 0px auto;
+}
+.feature {
+  text-align: center;
+  line-height: 1.8em;
+}
+.feature p {
+  color: #4c4c4c;
+}
+
+.feature img {
+  width: 200px;
+  height: 200px;
+}
+.partners-list {
+  display: flex;
+  column-gap: 0.5em;
+  row-gap: 0.5em;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.partners {
+  border: 1px solid hsl(0, 0%, 49%);
+  width: 150px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.partners img {
+  width: 100px;
+  height: 100;
+}
+.bg-smoke {
+  background-color: whitesmoke;
+}
+
+/* working on car service price list */
+.ex-m {
+  margin: 4em;
+}
+
+.list {
+  display: flex;
+  padding: 1em;
+}
+.service {
+  width: 80%;
+}
+.price {
+  width: 20%;
+}
+.dark {
+  background-color: #f2f2f2;
+}
+
+footer {
+  padding: 5em 10em;
+  position: relative;
+  bottom: 0;
+}
+.social-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 2em;
+  column-gap: 2em;
+}
+
+.social-menu a {
+  color: #747c83;
+  border: 1px solid #d8d8d8;
+  padding: 7px 14px;
+}
+.social-menu a:hover {
+  transform: 0.5s;
+  border: 1px solid tomato;
+  color: tomato;
+}
+.foot-nav {
+  margin: 3em 0em;
+  display: flex;
+  column-gap: 8em;
+  row-gap: 3em;
+}
+.foot-nav b {
+  color: tomato;
+  margin-bottom: 2em;
+}
+.foot-nav a {
+  color: #747c83;
+}
+.foot-nav li {
+  margin: 1em 0em;
+}
+.foot-copyright {
+  color: #747c83;
+  text-align: center;
+}
+.list-service-option {
+  text-align: center;
+  padding: 5em 0em;
+}
+.list-service-option h1 {
+  color: #4a4a4a;
+  line-height: 1.5em;
+}
+.list-service-option button {
+  padding: 7px 20px;
+  color: white;
+  border: none;
+  margin: 2em 0em;
+  background-color: tomato;
+}
+.list-service-option button:hover {
+  background-color: rgb(255, 79, 48);
+}
+.sc-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1em;
+  column-gap: 1em;
+}
+.service-center {
+  border-radius: 5px;
+}
+.service-center img {
+  width: 100%;
+  object-fit: cover;
+}
+.service-center p {
+  text-align: start;
+  margin: 0.2em 0em;
+}
+
+/* Navbar css codes from here */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 0.2em;
+  height: 8vh;
+  align-items: center;
+  border-bottom: 1px solid rgb(195, 195, 195);
+}
+.logo label {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+}
+.logo span {
+  color: tomato;
+}
+.menu,
+.auth-link {
+  display: flex;
+}
+.active {
+  border: 1px solid tomato;
+  color: tomato;
+  border-radius: 5px;
+}
+
+.menu a,
+.auth-link a {
+  color: #183153;
+  padding: 7px 14px;
+  font-size: 14px;
+}
+.menu li {
+  margin: 0em 1em;
+}
+
+.auth-link li {
+  margin: 0em 0.2em;
+}
+.menu a:hover {
+  transition: 0.5s;
+  border: 1px solid tomato;
+  color: tomato;
+  border-radius: 5px;
+}
+.auth-link li a {
+  padding: 7px 14px;
+  background-color: tomato;
+  border-radius: 5px;
+  color: #183153;
+}
+.auth-link li a:hover {
+  background-color: #183153;
+  color: tomato;
+  transition: 0.5s;
+}
+
+/* code for hero class */
+.hero img {
+  width: 100%;
+  height: 92vh;
+  object-fit: cover;
+}
+.hero {
+  position: relative;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.hero-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+.hero-text span {
+  color: tomato;
+}
+.search-box form {
+  display: flex;
+  justify-content: center;
+}
+.search-box input {
+  width: 85%;
+  height: 8vh;
+  padding: 0px 1em;
+  border: none;
+}
+.search-box select {
+  height: 8vh;
+  width: 15%;
+  padding: 0px 1em;
+  border-radius: 25px 0px 0px 25px;
+  border: none;
+}
+.search-box input:focus {
+  outline: none;
+}
+.search-box button {
+  padding: 0em 2em;
+  border-radius: 0px 25px 25px 0px;
+  border: none;
+  background-color: tomato;
+  color: white;
+  font-weight: bolder;
+  font-size: 14px;
+}
+.search-box select:focus {
+  outline: none;
+}
+/* Mobile-specific styles */
+@media only screen and (max-width: 767px) {
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .foot-nav {
+    display: block;
+  }
+  .sc-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 2em;
+    column-gap: 1em;
+  }
+}

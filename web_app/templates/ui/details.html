@@ -1,0 +1,52 @@
+{% extends 'garage_layout.html' %}
+{% block title %}Garage Detail{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/ui/details.css" />
+{% endblock %}
+
+{% block content %}
+
+    <nav class="navbar">
+      <ul></ul>
+      
+      <button id="book-appointment"><a href="/garages/book/{{garage_info[0].garage_id}}">Book Appointment</a></button>
+
+    </nav>
+    <section class="hero">
+      <h1>{{garage_info[0].garage_name}}</h1>
+    </section>
+    <div class="container">
+      <section class="details">
+
+        <img src="/static/imgs/{{garage_info[0].image[1]}}.jpeg" alt="Garage Image">
+      </section>
+      <section class="reviews">
+        <div class="review-form">
+          <h2>Description</h2>
+          <p>{{garage_info[0].description}}</p>
+        </div>
+      </section>
+      <section class="reviews details">
+        <p>Contact: {{garage_info[0].phone_number}}</p>
+        <p>Location: {{garage_info[0].sc_loc}}</p>
+        <div class="rating">
+          <p>Rating:</p>
+          <div class="stars">
+            {% set n = garage_info[0].ratings %}
+            {% for i in range(n) %}
+            <i style = "color: #ffcd00;" class="fas fa-star"></i>
+            {% endfor %}
+
+          </div>
+        </div>
+        <div class="buttons">
+          <button>Book Appointment</button>
+        </div>
+      </section>
+    </div>
+
+{% endblock %}
+
+

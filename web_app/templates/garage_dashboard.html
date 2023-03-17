@@ -1,0 +1,175 @@
+{% extends 'garage_layout.html' %}
+{% block title %}Autocare{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/css/ui/index.css" />
+{% endblock %}
+
+{% block content %}
+
+      <div class="hero">
+        <div class="hero-overlay"></div>
+        <img src="/static/imgs/bi.jpg" alt="" />
+        <div class="hero-text">
+          <h1>Welcome to Auto<span>Care</span></h1>
+          <div class="search-box">
+            <form action="/homepage" method= 'post'>
+              <select name="brand" id="brand">
+                <option value="#">Nissan</option>
+                <option value="#">Toyata</option>
+                <option value="#">Hyundai</option>
+                <option value="#">Tata</option>
+                <option value="#">Mahindra</option>
+              </select>
+              <input type="text" id="search-query" placeholder="Search" name="search_item"/>
+              <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    <!-- Featured service centers -->
+    <section>
+        <h1>Featured Service Centers</h1>
+        <div class="red-line"></div>
+        <div class="sc-list">
+          <div class="service-center">
+            <img src="/static/imgs/hyundai.jpg" alt="garage image" />
+            <p><b>Laxmi Huyndai</b></p>
+          </div>
+          <div class="service-center">
+            <img src="/static/imgs/hyundai.jpg" alt="garage image" />
+            <p><b>Laxmi Huyndai</b></p>
+          </div>
+          <div class="service-center">
+            <img src="/static/imgs/hyundai.jpg" alt="garage image" />
+            <p><b>Laxmi Huyndai</b></p>
+          </div>
+          <div class="service-center">
+            <img src="/static/imgs/hyundai.jpg" alt="garage image" />
+            <p><b>Laxmi Huyndai</b></p>
+          </div>
+        </div>
+      </section>  
+
+
+          <!-- Autocare Features -->
+    <section class="feature-wrapper bg-smoke">
+        <h1>Autocare Features</h1>
+        <div class="red-line"></div>
+        <div class="feature-list">
+          <div class="feature">
+            <img src="/static/imgs/affordable .png" alt="one hand droping coin" />
+            <p><b>Reliable and Affordable</b></p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim
+              praesentium facere quisquam! Nisi omnis adipisci, commodi ullam
+              cupiditate ratione nam.
+            </p>
+          </div>
+          <div class="feature">
+            <img src="/static/imgs/repair.png" alt="repairing car" />
+            <p><b>Expereinced and Trained</b></p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim
+              praesentium facere quisquam! Nisi omnis adipisci, commodi ullam
+              cupiditate ratione nam.
+            </p>
+          </div>
+          <div class="feature">
+            <img src="/static/imgs/quality .png" alt="one hand droping coin" />
+            <p><b>Quality Reparis</b></p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim
+              praesentium facere quisquam! Nisi omnis adipisci, commodi ullam
+              cupiditate ratione nam.
+            </p>
+          </div>
+          <div class="feature">
+            <img src="/static/imgs/schedule.png" alt="one hand droping coin" />
+            <p><b>Customizable Scheduling</b></p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim
+              praesentium facere quisquam! Nisi omnis adipisci, commodi ullam
+              cupiditate ratione nam.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+
+
+      
+      <!-- Car servie price list -->
+      <section class="ex-m">
+        <h1>Car Service Price List</h1>
+        <div class="red-line"></div>
+        <div class="list-wrapper">
+        {% for i in services_list %}
+            {% if loop.index % 2 == 0 %}
+                {% set classvar = "list" %}
+                {% set new = "" %}
+            {% else %}
+                {% set classvar = "list dark" %}
+                {% set new = "dark" %}
+            {% endif %}
+          <div class= '{{classvar}}'>
+            <div class="service"><b>{{i.service_name}}</b></div>
+            <div class="price"><b>{{i.service_price}}</b></div>
+          </div>
+        {%endfor%}
+        </div>
+      </section>
+  
+      <!-- Our partners -->
+      <section class="feature-wrapper bg-smoke">
+        <h1>Our Partners</h1>
+        <div class="red-line"></div>
+        <div class="partners-list">
+          <div class="partners">
+            <img src="/static/imgs/anfa.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/iism.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/java.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/ronb.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/army.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/kfc.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/isgli.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/anfa.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/anfa.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/anfa.png" alt="" />
+          </div>
+          <div class="partners">
+            <img src="/static/imgs/anfa.png" alt="" />
+          </div>
+        </div>
+      </section>
+  
+      <!-- list you service center -->
+      <section class="list-service-option">
+        <h1>List your Service Center at Autocare</h1>
+        <h1>Reach 5,00,000 + new customers.</h1>
+        <button>Request</button>
+      </section>
+
+      {% endblock %}
+
+      
+  

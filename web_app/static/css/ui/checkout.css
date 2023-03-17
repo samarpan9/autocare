@@ -1,0 +1,105 @@
+.garage-cover {
+  width: 100%;
+}
+
+/* nav bar css codes here */
+.my-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 0.2em;
+  height: 8vh;
+  align-items: center;
+  border-bottom: 1px solid rgb(195, 195, 195);
+}
+.my-logo label {
+  font-weight: bold;
+  font-size: 20px;
+}
+.my-logo span {
+  color: tomato;
+}
+.my-menu,
+.my-auth-link {
+  display: flex;
+}
+.my-active {
+  border: 1px solid tomato;
+  color: tomato;
+  border-radius: 5px;
+}
+
+.my-menu a,
+.my-auth-link a {
+  color: #183153;
+  padding: 7px 14px;
+  font-size: 14px;
+}
+.my-menu li {
+  margin: 0em 1em;
+}
+
+.my-auth-link li {
+  margin: 0em 0.2em;
+}
+.my-menu a:hover {
+  transition: 0.5s;
+  border: 1px solid tomato;
+  color: tomato;
+  border-radius: 5px;
+}
+.my-auth-link li a {
+  padding: 7px 14px;
+  background-color: tomato;
+  border-radius: 5px;
+  color: #183153;
+}
+.my-auth-link li a:hover {
+  background-color: #183153;
+  color: tomato;
+  transition: 0.5s;
+}
+
+/* footer */
+footer {
+  padding: 5em 10em;
+  position: relative;
+  bottom: 0;
+}
+.social-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 2em;
+  column-gap: 2em;
+}
+
+.social-menu a {
+  color: #747c83;
+  border: 1px solid #d8d8d8;
+  padding: 7px 14px;
+}
+.social-menu a:hover {
+  transform: 0.5s;
+  border: 1px solid tomato;
+  color: tomato;
+}
+.foot-nav {
+  margin: 3em 0em;
+  display: flex;
+  column-gap: 8em;
+  row-gap: 3em;
+}
+.foot-nav b {
+  color: tomato;
+  margin-bottom: 2em;
+}
+.foot-nav a {
+  color: #747c83;
+}
+.foot-nav li {
+  margin: 1em 0em;
+}
+.foot-copyright {
+  color: #747c83;
+  text-align: center;
+}

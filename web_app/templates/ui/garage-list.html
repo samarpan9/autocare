@@ -1,0 +1,42 @@
+{% extends 'garage_layout.html' %}
+{% block title %}Garage Listing{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/ui/garage-list.css" />
+{% endblock %}
+
+{% block content %}
+
+
+<section>
+  {%for i in garage_data%}
+    <div class="search-result">
+      <img src="/static/imgs/{{i.image[0]}}.jpeg" alt="" />
+
+      <div class="text-content">
+        <div class="name-text">
+          <h3>{{i.garage_name}}</h3>
+          <p>
+            <i style="color: rgb(255, 32, 32)" class="fa-solid fa-location-dot"></i>
+            {{i.sc_loc}}
+          </p>
+          <a href="/garages/{{i.garage_id}}">View More</a>
+        </div>
+
+        <div class="location-text">
+          <p>
+            {{i.description}}
+          </p>
+          {% set n = i.ratings %}
+          {% for i in range(n) %}
+          <i style = "color: #ffcd00;" class="fas fa-star"></i>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {%endfor%}
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Autocare Business - Sign Up</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/static/css/auth/signup-style.css" />
+  </head>
+
+  <body>
+    <header>
+    </header>
+
+    <main>
+      <h1>Sign Up for Autocare</h1>
+      <form action="/signup" method="post">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="user_name" placeholder="Enter your full name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone_num">Phone Number</label>
+          <input type="text" id="email" name="phone_number" placeholder="Enter your Phone number" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter a strong password" required />
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required />
+        </div>
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Autocare Business. All rights reserved.</p>
+    </footer>
+
+
+    <script src="/static/js/signup.js"></script>
+  </body>
+</html>

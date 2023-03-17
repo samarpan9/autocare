@@ -1,0 +1,69 @@
+  {% extends 'garage_layout.html' %}
+  {% block title %}Contact us{% endblock %}
+  
+  {% block head %}
+  <link rel="stylesheet" type="text/css" href="/static/css/ui/contact.css" />
+  {% endblock %}
+  
+  {% block content %}
+    <img src="/static/imgs/about-cover.jpg" alt="" class="page-cover-img" />
+    <section>
+      <h1>Contact</h1>
+      <div class="red-line"></div>
+      <div class="contact-row">
+        <div class="form-wrapper">
+          <form action="">
+            <div class="contact-mb-3">
+              <label for="fullname">Fullname</label>
+              <input
+                type="text"
+                class="contact-form-control"
+                name="fullname"
+                placeholder="John Doe"
+              />
+            </div>
+            <div class="contact-mb-3">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                class="contact-form-control"
+                name="email"
+                placeholder="john@gmail.com"
+              />
+            </div>
+            <div class="contact-mb-3">
+              <label for="fullname">Message</label>
+              <textarea
+                name="message"
+                id="message"
+                cols="30"
+                rows="10"
+                class="contact-form-text"
+                placeholder="Your message here"
+              ></textarea>
+            </div>
+            <button class="contact-btn">Submit</button>
+          </form>
+        </div>
+        <div class="detail-wrapper">
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            autocare@info.com
+          </p>
+          <p>
+            <i class="fa-solid fa-phone"></i>
+            +977 980 3508167
+          </p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i>
+            Putalisadak, Kathmandu Nepal
+          </p>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://kit.fontawesome.com/050a1d7192.js"
+      crossorigin="anonymous"
+    ></script>
+
+  {%endblock%}

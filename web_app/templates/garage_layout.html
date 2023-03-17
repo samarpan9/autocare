@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/ui/util.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/ui/index.css" />
+    {% block head %}
+
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="/"><label>Auto<span>Care</span></label></a>
+        </div>
+        <ul class="menu">
+          <li>
+            <a href="/" class="active"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li><a href="/about-us">About Us</a></li>
+          <li>
+            <a href=""><i class="fa-solid fa-phone"></i> Contact Us</a>
+          </li>
+        </ul>
+        <ul class="auth-link">
+          <li><a href="./html/login.html">Login</a></li>
+          <li><a href="./html/signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- footer -->
+    <footer class="bg-smoke">
+      <ul class="social-menu">
+        <li>
+          <a href="./html/garage-list.html"
+            ><i class="fa-brands fa-facebook-f"></i> Facebook</a
+          >
+        </li>
+        <li>
+          <a href="./html//details.html">
+            <i class="fa-brands fa-instagram"></i> Instagram</a
+          >
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i> Linkedin</a>
+        </li>
+      </ul>
+      <div class="foot-nav">
+        <div class="service-nav">
+          <b>Popular Services</b>
+          <ul>
+            <li><a href="#">All Service</a></li>
+            <li><a href="#">General Service</a></li>
+            <li><a href="#">Custom Repairs</a></li>
+            <li><a href="#">Car Cleaning</a></li>
+            <li><a href="#">AC/Heater Service</a></li>
+            <li><a href="#">Denting And Painting</a></li>
+          </ul>
+        </div>
+        <div class="comapny-nav">
+          <b>Company</b>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Faq</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Term & Condition</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="foot-copyright">&#169; 2023 All Rights Reserved | Autocare</p>
+    </footer>
+    {% block scripts %}
+
+    {% endblock %}
+    <script
+      src="https://kit.fontawesome.com/050a1d7192.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

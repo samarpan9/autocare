@@ -1,0 +1,116 @@
+    {% extends 'garage_layout.html' %}
+    {% block title %}Profile{% endblock %}
+    
+    {% block head %}
+    <link rel="stylesheet" href="/static/css/ui/profile.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+    {% endblock %}
+    
+    {% block content %}
+
+    <div class="main-content">
+      <!-- Header -->
+      <div
+        class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+        style="
+          min-height: 600px;
+          background-image: url(https://raw.githubusercontent.com/creativetimofficial/argon-dashboard/gh-pages/assets-old/img/theme/profile-cover.jpg);
+          background-size: cover;
+          background-position: center top;
+        "
+      >
+        <!-- Mask -->
+        <span class="mask bg-gradient-default opacity-8"></span>
+        <!-- Header container -->
+        <div class="container-fluid d-flex align-items-center">
+          <h1 class="text-white col-md-10">Hello, Ranjan Nagarkoti!</h1>
+        </div>
+      </div>
+      <!-- Page content -->
+      <div class="container-fluid mt--7">
+        <div class="row">
+          <div class="col-xl-8 order-xl-1">
+            <div class="card bg-secondary shadow">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-12">
+                    <h3 class="mb-0">Active Booking</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body bg-body row">
+                <img src="/static/imgs/aa.webp" class="col-4" alt="">
+                <div class="text-content col-8">
+                  <h6>Garage name: {{current_servicing_data['garage_name']}}</h6>
+                  <p>Date: {{current_servicing_data['rec_date'].strftime('%Y-%m-%d %H:%M:%S')}}</p>
+                  <p>Services: {{current_servicing_data['user_services']}}</p>
+                  <p>Pick and drop: {{current_servicing_data['delivery']}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-8 order-xl-1">
+            <div class="card bg-secondary shadow">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-12">
+                    <h3 class="mb-0">Your Booking history</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body bg-body">
+                <!-- booking history table here -->
+                <table class="table bg-light">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Garage</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Servies</th>
+                      <th scope="col">Pick and drop</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {%for i in servicing_data%}
+                    
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{{i['garage_name']}}</td>
+                      <td>{{i['rec_date'].strftime('%Y-%m-%d %H:%M:%S')}}</td>
+                      <td>{{i['user_services']}}</td>
+                      <td>{{i['delivery']}}</td>
+                    </tr>
+                    {%endfor%}
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 order-xl-1">
+            <div class="card bg-secondary shadow">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-12">
+                    <h3 class="mb-0">Subscription</h3>
+                    <div class="autocare-sub row mt-2 mb-2 border p-2">
+                      <img src="/static/imgs/aa.webp" class="col-4" alt="">
+                      <div class="autocare-sub-text col-8">
+                        <h6 class="text-black">Garage: {{user_sub[0]['garage_name']}}</h6>
+                        <p>Servicing duration in: {{user_sub[0]['package_name']}}</p>
+                        <p>Price {{user_sub[0]['package_price']}}</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://kit.fontawesome.com/050a1d7192.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{%endblock%}
